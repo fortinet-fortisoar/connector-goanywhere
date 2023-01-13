@@ -1,0 +1,254 @@
+{
+  "name": "goanywhere",
+  "label": "GoAnywhere",
+  "version": "1.0.0",
+  "description": "GoAnywhere MFT is a secure file transfer solution that organizations use to exchange their data safely. The solution helps organizations automate their data transfers, centralize file transfer activity, monitor file transfers and user access. This connector facilitates automated operation related to File Transfer Summary, Active Sessions Details, and Completed Jobs Summary.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "category": "IT Services",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "ingestion_supported": false,
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "description": "Specify the URL of the GoAnywhere server to which you will connect and perform automated operations.",
+        "type": "text",
+        "name": "server_url",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "Username",
+        "description": "Specify the username used to access the GoAnywhere server to which you will connect and perform the automated operations.",
+        "type": "text",
+        "name": "username",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "Password",
+        "description": "Specify the password used to access the GoAnywhere server to which you will connect and perform the automated operations.",
+        "type": "password",
+        "name": "password",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_file_transfer_summary",
+      "title": "Get File Transfer Summary",
+      "description": "Retrieves the number of file transfers summary details for a specified service from GoAnywhere based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_file_transfer_summary",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Module",
+          "description": "(Optional) Specify the GoAnywhere modules that will be included in the file transfer statistics from the following available options: AS2, FTP, FTPS, SFTP, etc.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "AS2",
+            "FTP",
+            "FTPS",
+            "SFTP",
+            "GoFast",
+            "GoDrive",
+            "Projects",
+            "Secure Folders",
+            "Secure Forms",
+            "Triggers",
+            "Secure Mail"
+          ],
+          "name": "module",
+          "tooltip": "(Optional) Specify the GoAnywhere modules that will be included in the file transfer statistics from the following available options: AS2, FTP, FTPS, SFTP, etc."
+        },
+        {
+          "title": "Date Range",
+          "description": "(Optional) The scope of the statistics based on date and time from the following available options: Today, Yesterday, Last 7 Days, Last 30 Days, etc.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Today",
+            "Yesterday",
+            "Last 7 Days",
+            "Last 30 Days",
+            "Last 90 Days",
+            "Last 180 Days",
+            "Last 365 Days"
+          ],
+          "name": "date_range",
+          "value": "Today",
+          "tooltip": "(Optional) The scope of the statistics based on date and time from the following available options: Today, Yesterday, Last 7 Days, Last 30 Days, etc. By default, this option is set as Today."
+        },
+        {
+          "title": "Group By",
+          "description": "(Optional) Determines how the statistics are grouped by from the following available options: Hour, Day Of Week, Day Of Month, or Month.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Hour",
+            "Day Of Week",
+            "Day Of Month",
+            "Month"
+          ],
+          "name": "group_by",
+          "value": "Hour",
+          "tooltip": "(Optional) Determines how the statistics are grouped by from the following available options: Hour, Day Of Week, Day Of Month, or Month. By default, this option is set as Hour."
+        }
+      ],
+      "output_schema": [
+        {
+          "label": "",
+          "count": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_active_sessions_details",
+      "title": "Get Active Sessions Details",
+      "description": "Retrieves the active session details for each active session from GoAnywhere based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_active_sessions_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Services",
+          "description": "(Optional) Specify the GoAnywhere services that will be returned from the following available options: HTTPS Sessions, FTP Sessions, FTPS Sessions, SFTP Sessions, etc.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "HTTPS Sessions",
+            "FTP Sessions",
+            "FTPS Sessions",
+            "SFTP Sessions",
+            "AS2 Sessions",
+            "GoFast Sessions",
+            "Agent Sessions",
+            "Admin Sessions"
+          ],
+          "name": "services",
+          "tooltip": "(Optional) Specify the GoAnywhere services that will be returned from the following available options: HTTPS Sessions, FTP Sessions, FTPS Sessions, SFTP Sessions, etc."
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "max_rows",
+          "tooltip": "(Optional) Specify the maximum number of records that you want this operation to fetch from GoAnywhere. By default, this option is set as 5.",
+          "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from GoAnywhere.",
+          "value": 5
+        }
+      ],
+      "output_schema": [
+        {
+          "service": "",
+          "userName": "",
+          "remoteAddress": "",
+          "gateway": "",
+          "localAddress": "",
+          "localPort": "",
+          "bytesSent": "",
+          "bytesReceived": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_completed_jobs_summary",
+      "title": "Get Completed Jobs Summary",
+      "description": "Retrieves the number of completed jobs for the specified date range from GoAnywhere based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_completed_jobs_summary",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Date Range",
+          "description": "(Optional) The scope of the statistics based on date and time from the following available options: Today, Yesterday, Last 7 Days, Last 30 Days, etc.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Today",
+            "Yesterday",
+            "Last 7 Days",
+            "Last 30 Days",
+            "Last 90 Days",
+            "Last 180 Days",
+            "Last 365 Days"
+          ],
+          "name": "date_range",
+          "value": "Today",
+          "tooltip": "(Optional) The scope of the statistics based on date and time from the following available options: Today, Yesterday, Last 7 Days, Last 30 Days, etc. By default, this option is set as Today."
+        },
+        {
+          "title": "Group By",
+          "description": "(Optional) Determines how the statistics are grouped by from the following available options: Hour, Day Of Week, Day Of Month, or Month. By default, this option is set as Hour.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Hour",
+            "Day Of Week",
+            "Day Of Month",
+            "Month"
+          ],
+          "name": "group_by",
+          "value": "Hour",
+          "tooltip": "(Optional) Determines how the statistics are grouped by from the following available options: Hour, Day Of Week, Day Of Month, or Month. By default, this option is set as Hour."
+        },
+        {
+          "title": "Status",
+          "description": "(Optional) Narrow the results by Job status from the following available options: Success, Failed, or Canceled.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Success",
+            "Failed",
+            "Canceled"
+          ],
+          "name": "status",
+          "tooltip": "(Optional) Narrow the results by Job status from the following available options: Success, Failed, or Canceled."
+        }
+      ],
+      "output_schema": [
+        {
+          "label": "",
+          "count": ""
+        }
+      ]
+    }
+  ]
+}

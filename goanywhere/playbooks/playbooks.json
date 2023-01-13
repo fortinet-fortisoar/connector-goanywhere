@@ -1,0 +1,309 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - GoAnywhere - 1.0.0",
+      "description": "GoAnywhere MFT is a secure file transfer solution that organizations use to exchange their data safely. The solution helps organizations automate their data transfers, centralize file transfer activity, monitor file transfers and user access. This connector facilitates automated operation related to File Transfer Summary, Active Sessions Details, and Completed Jobs Summary.",
+      "visible": true,
+      "image": null,
+      "uuid": "b5f72daa-ee90-4407-b4a4-731279c9f17d",
+      "id": 193,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Completed Jobs Summary",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the number of completed jobs for the specified date range from GoAnywhere based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1673253579,
+          "collection": "/api/3/workflow_collections/b5f72daa-ee90-4407-b4a4-731279c9f17d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/fe9ed72c-d189-4a4c-a044-8e7054490f96",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Completed Jobs Summary",
+              "description": null,
+              "arguments": {
+                "name": "GoAnywhere",
+                "config": "",
+                "params": {
+                  "status": "",
+                  "group_by": "Hour",
+                  "date_range": "Today"
+                },
+                "version": "1.0.0",
+                "connector": "goanywhere",
+                "operation": "get_completed_jobs_summary",
+                "operationTitle": "Get Completed Jobs Summary",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "67c1ec98-5d21-415d-bb41-b478f5cc205e"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "8faad3ae-b364-4962-8a01-bb693663f190",
+                "title": "GoAnywhere: Get Completed Jobs Summary",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "fe9ed72c-d189-4a4c-a044-8e7054490f96"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Completed Jobs Summary",
+              "targetStep": "/api/3/workflow_steps/67c1ec98-5d21-415d-bb41-b478f5cc205e",
+              "sourceStep": "/api/3/workflow_steps/fe9ed72c-d189-4a4c-a044-8e7054490f96",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "5591394c-956a-446a-8b29-d1a3767218f2"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "6cd33459-09c8-41e2-acf1-54d860179f29",
+          "id": 2685,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "goanywhere"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Active Sessions Details",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the active session details for each active session from GoAnywhere based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1673253523,
+          "collection": "/api/3/workflow_collections/b5f72daa-ee90-4407-b4a4-731279c9f17d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/ab1b9d6f-2c0c-4bab-8795-cb07c096efcc",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Active Sessions Details",
+              "description": null,
+              "arguments": {
+                "name": "GoAnywhere",
+                "config": "",
+                "params": {
+                  "max_rows": 5,
+                  "services": ""
+                },
+                "version": "1.0.0",
+                "connector": "goanywhere",
+                "operation": "get_active_sessions_details",
+                "operationTitle": "Get Active Sessions Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "9871d931-6f6c-427c-9005-e685f3c66b83"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "ad14289c-5ac9-40fd-a4f2-06132280afff",
+                "title": "GoAnywhere: Get Active Sessions Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "ab1b9d6f-2c0c-4bab-8795-cb07c096efcc"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Active Sessions Details",
+              "targetStep": "/api/3/workflow_steps/9871d931-6f6c-427c-9005-e685f3c66b83",
+              "sourceStep": "/api/3/workflow_steps/ab1b9d6f-2c0c-4bab-8795-cb07c096efcc",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "92fc41b8-edf4-4825-b63a-eca6734e1bba"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "ab18f7cc-ba05-41d5-9246-93904996de80",
+          "id": 2684,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "goanywhere"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get File Transfer Summary",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the number of file transfers summary details for a specified service from GoAnywhere based on the input parameters that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1673253468,
+          "collection": "/api/3/workflow_collections/b5f72daa-ee90-4407-b4a4-731279c9f17d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/189a4eef-8dfb-4775-819c-ffdbd4a73944",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "d50ebef4-2cc2-4da6-86ea-1651c2427596",
+                "title": "GoAnywhere: Get File Transfer Summary",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "189a4eef-8dfb-4775-819c-ffdbd4a73944"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get File Transfer Summary",
+              "description": null,
+              "arguments": {
+                "name": "GoAnywhere",
+                "config": "",
+                "params": {
+                  "module": "",
+                  "group_by": "Hour",
+                  "date_range": "Today"
+                },
+                "version": "1.0.0",
+                "connector": "goanywhere",
+                "operation": "get_file_transfer_summary",
+                "operationTitle": "Get File Transfer Summary",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "4a91780f-e52c-4e53-8044-5c1c316116d6"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get File Transfer Summary",
+              "targetStep": "/api/3/workflow_steps/4a91780f-e52c-4e53-8044-5c1c316116d6",
+              "sourceStep": "/api/3/workflow_steps/189a4eef-8dfb-4775-819c-ffdbd4a73944",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "eed01609-71d4-4fa4-99ed-ff015e83cd0a"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "fe2c9616-a33a-4f1f-b13e-94f56f25bca8",
+          "id": 2683,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "goanywhere"
+          ]
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "goanywhere"
+  ]
+}
