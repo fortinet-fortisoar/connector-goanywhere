@@ -6,7 +6,7 @@
   "publisher": "Fortinet",
   "cs_approved": true,
   "cs_compatible": true,
-  "category": "",
+  "category": "IT Services",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "ingestion_supported": false,
@@ -63,7 +63,7 @@
       "parameters": [
         {
           "title": "Module",
-          "description": "(Optional) Specify the GoAnywhere modules that will be included in the file transfer statistics from the following available options: ",
+          "description": "(Optional) Specify the GoAnywhere modules that will be included in the file transfer statistics from the following available options: AS2, FTP, FTPS, SFTP, etc.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -82,11 +82,11 @@
             "Secure Mail"
           ],
           "name": "module",
-          "tooltip": "(Optional) Specify the GoAnywhere modules that will be included in the file transfer statistics from the following available options: "
+          "tooltip": "(Optional) Specify the GoAnywhere modules that will be included in the file transfer statistics from the following available options: AS2, FTP, FTPS, SFTP, etc."
         },
         {
           "title": "Date Range",
-          "description": "(Optional) The scope of the statistics based on date and time from the following available options: ",
+          "description": "(Optional) The scope of the statistics based on date and time from the following available options: Today, Yesterday, Last 7 Days, Last 30 Days, etc.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -102,11 +102,11 @@
           ],
           "name": "date_range",
           "value": "Today",
-          "tooltip": "(Optional) The scope of the statistics based on date and time from the following available options: "
+          "tooltip": "(Optional) The scope of the statistics based on date and time from the following available options: Today, Yesterday, Last 7 Days, Last 30 Days, etc. By default, this option is set as Today."
         },
         {
           "title": "Group By",
-          "description": "(Optional) Determines how the statistics are grouped by from the following available options: ",
+          "description": "(Optional) Determines how the statistics are grouped by from the following available options: Hour, Day Of Week, Day Of Month, or Month.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -119,7 +119,7 @@
           ],
           "name": "group_by",
           "value": "Hour",
-          "tooltip": "(Optional) Determines how the statistics are grouped by from the following available options:"
+          "tooltip": "(Optional) Determines how the statistics are grouped by from the following available options: Hour, Day Of Week, Day Of Month, or Month. By default, this option is set as Hour."
         }
       ],
       "output_schema": [
@@ -139,7 +139,7 @@
       "parameters": [
         {
           "title": "Services",
-          "description": "(Optional) Specify the GoAnywhere services that will be returned from the following available options: ",
+          "description": "(Optional) Specify the GoAnywhere services that will be returned from the following available options: HTTPS Sessions, FTP Sessions, FTPS Sessions, SFTP Sessions, etc.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -155,7 +155,7 @@
             "Admin Sessions"
           ],
           "name": "services",
-          "tooltip": "(Optional) Specify the GoAnywhere services that will be returned from the following available options: "
+          "tooltip": "(Optional) Specify the GoAnywhere services that will be returned from the following available options: HTTPS Sessions, FTP Sessions, FTPS Sessions, SFTP Sessions, etc."
         },
         {
           "title": "Limit",
@@ -164,7 +164,7 @@
           "visible": true,
           "type": "integer",
           "name": "max_rows",
-          "tooltip": "(Optional) Specify the maximum number of records that you want this operation to fetch from GoAnywhere.",
+          "tooltip": "(Optional) Specify the maximum number of records that you want this operation to fetch from GoAnywhere. By default, this option is set as 5.",
           "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from GoAnywhere.",
           "value": 5
         }
@@ -192,7 +192,7 @@
       "parameters": [
         {
           "title": "Date Range",
-          "description": "(Optional) The scope of the statistics based on date and time from the following available options: ",
+          "description": "(Optional) The scope of the statistics based on date and time from the following available options: Today, Yesterday, Last 7 Days, Last 30 Days, etc.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -208,11 +208,11 @@
           ],
           "name": "date_range",
           "value": "Today",
-          "tooltip": "(Optional) The scope of the statistics based on date and time from the following available options: "
+          "tooltip": "(Optional) The scope of the statistics based on date and time from the following available options: Today, Yesterday, Last 7 Days, Last 30 Days, etc. By default, this option is set as Today."
         },
         {
           "title": "Group By",
-          "description": "(Optional) Determines how the statistics are grouped by from the following available options: ",
+          "description": "(Optional) Determines how the statistics are grouped by from the following available options: Hour, Day Of Week, Day Of Month, or Month. By default, this option is set as Hour.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -225,11 +225,11 @@
           ],
           "name": "group_by",
           "value": "Hour",
-          "tooltip": "(Optional) Determines how the statistics are grouped by from the following available options:"
+          "tooltip": "(Optional) Determines how the statistics are grouped by from the following available options: Hour, Day Of Week, Day Of Month, or Month. By default, this option is set as Hour."
         },
         {
           "title": "Status",
-          "description": "(Optional) Narrow the results by Job status from the following available options: ",
+          "description": "(Optional) Narrow the results by Job status from the following available options: Success, Failed, or Canceled.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -240,7 +240,7 @@
             "Canceled"
           ],
           "name": "status",
-          "tooltip": "(Optional) Narrow the results by Job status from the following available options:"
+          "tooltip": "(Optional) Narrow the results by Job status from the following available options: Success, Failed, or Canceled."
         }
       ],
       "output_schema": [
