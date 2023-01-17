@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "GoAnywhere MFT is a secure file transfer solution that organizations use to exchange their data safely. The solution helps organizations automate their data transfers, centralize file transfer activity, monitor file transfers and user access. This connector facilitates automated operation related to File Transfer Summary, Active Sessions Details, and Completed Jobs Summary.",
   "publisher": "Fortinet",
-  "cs_approved": false,
+  "cs_approved": true,
   "cs_compatible": true,
   "category": "IT Services",
   "icon_small_name": "small.png",
