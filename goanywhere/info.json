@@ -152,7 +152,9 @@
             "AS2 Sessions",
             "GoFast Sessions",
             "Agent Sessions",
-            "Admin Sessions"
+            "Admin Sessions",
+            "AS4 Sessions",
+            "PeSIT Sessions"
           ],
           "name": "services",
           "tooltip": "(Optional) Specify the GoAnywhere services that will be returned from the following available options: HTTPS Sessions, FTP Sessions, FTPS Sessions, SFTP Sessions, etc."

@@ -43,7 +43,9 @@ ACTIVE_SESSIONS_SERVICES = {
     "AS2 Sessions": 16,
     "GoFast Sessions": 32,
     "Agent Sessions": 64,
-    "Admin Sessions": 128
+    "Admin Sessions": 128,
+    "AS4 Sessions": 256,
+    "PeSIT Sessions": 512
 }
 
 JOBS_COMPLETED_STATUS = {
