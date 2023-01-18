@@ -42,8 +42,8 @@ class GoAnywhere(object):
             elif response.status_code == 404:
                 return response
             else:
-                logger.error("{0}".format(response.status_code, ''))
-                raise ConnectorError("{0}".format(response.status_code, response.text))
+                logger.error("{0}".format(response.status_code))
+                raise ConnectorError("{0}:{1}".format(response.status_code, response.text))
         except requests.exceptions.SSLError:
             raise ConnectorError('SSL certificate validation failed')
         except requests.exceptions.ConnectTimeout:
@@ -128,7 +128,7 @@ def _check_health(config):
         if response:
             return True
     except Exception as err:
-        raise ConnectorError("{0}".format(str(err)))
+        raise ConnectorError('Invalid Credentials')
 
 
 operations = {
