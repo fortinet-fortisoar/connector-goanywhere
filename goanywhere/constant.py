@@ -15,7 +15,9 @@ FILE_TRANSFER_MODULE = {
     "Secure Folders": 128,
     "Secure Forms": 256,
     "Triggers": 512,
-    "Secure Mail": 1024
+    "Secure Mail": 1024,
+    "AS4": 2048,
+    "PeSIT": 4096
 }
 
 DATE_RANGE = {

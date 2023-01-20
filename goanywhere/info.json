@@ -79,7 +79,9 @@
             "Secure Folders",
             "Secure Forms",
             "Triggers",
-            "Secure Mail"
+            "Secure Mail",
+            "AS4",
+            "PeSIT"
           ],
           "name": "module",
           "tooltip": "(Optional) Specify the GoAnywhere modules to include in the file transfer statistics from the following available options: AS2, FTP, FTPS, SFTP, etc."
